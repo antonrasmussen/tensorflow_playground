@@ -36,7 +36,9 @@ Screenshots are full-page. The folder is in `.gitignore` so generated images are
 
 ### Run report (JSON)
 
-Each run also writes a short **run report** to `tests/simulations/outputs/circle-quick-convergence-latest.json` with: simulation name, timestamp, dataset, steps, initial/final epoch, initial/final training loss, and screenshot filenames. Use it to compare runs or paste numbers into notes.
+**Run report:** `outputs/circle-quick-convergence-latest.json` (full path: `tests/simulations/outputs/circle-quick-convergence-latest.json`) with dataset, steps, initial/final loss, epoch, and timestamp—so you can compare runs or paste numbers into notes.
+
+Each run writes this file after the test passes. It includes: simulation name, timestamp, dataset, steps, initial/final epoch, initial/final training loss, and screenshot filenames.
 
 **Note:** `npm test` starts the app on port 8080 automatically. If you already have `npm run serve:test` running, stop it first so the test runner can bind to 8080. For a headed run (to record a video), run `npm test -- tests/simulations/ --headed` with 8080 free so the runner can start the server and open the browser.
 

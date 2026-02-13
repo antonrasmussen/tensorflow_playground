@@ -1,0 +1,14 @@
+{
+  "simulation": "circle-quick-convergence",
+  "runAt": "2026-02-13T04:15:51.381Z",
+  "dataset": "Circle",
+  "steps": 50,
+  "initialEpoch": 0,
+  "finalEpoch": 50,
+  "initialTrainLoss": 0.5,
+  "finalTrainLoss": 0.044,
+  "screenshots": [
+    "circle-quick-convergence-01-initial.png",
+    "circle-quick-convergence-02-after-50-steps.png"
+  ]
+}

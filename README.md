@@ -27,6 +27,8 @@ HTML and CSS files whenever they change.
 - First time: run `npx playwright install` to download the browser.
 - See [tests/README.md](tests/README.md) for test groups and how to run a single test.
 
+**Run report:** Simulation runs write `tests/simulations/outputs/circle-quick-convergence-latest.json` with dataset, steps, initial/final loss, epoch, and timestamp—so you can compare runs or paste numbers into notes.
+
 ## For owners
 To push to production: `git subtree push --prefix dist origin gh-pages`.
 
