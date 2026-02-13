@@ -6,6 +6,8 @@ Your feedback is highly appreciated!
 
 **If you'd like to contribute, be sure to review the [contribution guidelines](CONTRIBUTING.md).**
 
+Notebooks (e.g. the Deep Learning in Genomics primer) live in [notebooks/](notebooks/).
+
 ## Development
 
 To run the visualization locally, run:

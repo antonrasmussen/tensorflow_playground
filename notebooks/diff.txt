@@ -1,0 +1,1644 @@
+nbdiff prof.ipynb A_Primer_on_Deep_Learning_in_Genomics_Public.ipynb
+--- prof.ipynb  2026-02-12 23:30:18.351736
++++ A_Primer_on_Deep_Learning_in_Genomics_Public.ipynb  2026-02-12 23:30:41.169797
+[34m[1m## modified /cells/0/source:[0m
+[31m-  <a href="https://colab.research.google.com/github/hongqin/AI4Health/blob/main/A_Primer_on_Deep_Learning_in_Genomics_Public.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+[32m+  <a href="https://colab.research.google.com/github/antonrasmussen/tensorflow_playground/blob/main/A_Primer_on_Deep_Learning_in_Genomics_Public.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+[0m[34m[1m## modified /cells/12/metadata/outputId:[0m
+[31m-  42437168-64fb-42fe-f79a-14b1c79ab41f
+[32m+  71a59abf-f951-4979-ca0d-5d4978dd6fa9
+
+[0m[34m[1m## inserted before /cells/12/outputs/0:[0m
+[32m+  output:
+[32m+    output_type: execute_result
+[32m+    execution_count: 1
+[32m+    data:
+[32m+      application/vnd.google.colaboratory.intrinsic+json:
+[32m+        summary:
+[32m+          {
+[32m+            "name": "             columns=['Sequences'])",
+[32m+            "rows": 5,
+[32m+            "fields": [
+[32m+              {
+[32m+                "column": "Sequences",
+[32m+                "properties": {
+[32m+                  "dtype": "string",
+[32m+                  "num_unique_values": 5,
+[32m+                  "samples": [
+[32m+                    "GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGCGTCG",
+[32m+                    "GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATATGGT",
+[32m+                    "GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTAGCCT"
+[32m+                  ],
+[32m+                  "semantic_type": "",
+[32m+                  "description": ""
+[32m+                }
+[32m+              }
+[32m+            ]
+[32m+          }
+[32m+        type: dataframe
+[32m+      text/html:
+[32m+        
+[32m+          <div id="df-85fb7a34-5d12-4a7d-8787-5938172a062d" class="colab-df-container">
+[32m+            <div>
+[32m+        <style scoped>
+[32m+            .dataframe tbody tr th:only-of-type {
+[32m+                vertical-align: middle;
+[32m+            }
+[32m+        
+[32m+            .dataframe tbody tr th {
+[32m+                vertical-align: top;
+[32m+            }
+[32m+        
+[32m+            .dataframe thead th {
+[32m+                text-align: right;
+[32m+            }
+[32m+        </style>
+[32m+        <table border="1" class="dataframe">
+[32m+          <thead>
+[32m+            <tr style="text-align: right;">
+[32m+              <th></th>
+[32m+              <th>Sequences</th>
+[32m+            </tr>
+[32m+          </thead>
+[32m+          <tbody>
+[32m+            <tr>
+[32m+              <th>1</th>
+[32m+              <td>CCGAGGGCTATGGTTTGGAAGTTAGAACCCTGGGGCTTCTCGCGGA...</td>
+[32m+            </tr>
+[32m+            <tr>
+[32m+              <th>2</th>
+[32m+              <td>GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGC...</td>
+[32m+            </tr>
+[32m+            <tr>
+[32m+              <th>3</th>
+[32m+              <td>GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTA...</td>
+[32m+            </tr>
+[32m+            <tr>
+[32m+              <th>4</th>
+[32m+              <td>GTCCACGACCGAACTCCCACCTTGACCGCAGAGGTACCACCAGAGC...</td>
+[32m+            </tr>
+[32m+            <tr>
+[32m+              <th>5</th>
+[32m+              <td>GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATA...</td>
+[32m+            </tr>
+[32m+          </tbody>
+[32m+        </table>
+[32m+        </div>
+[32m+            <div class="colab-df-buttons">
+[32m+        
+[32m+          <div class="colab-df-container">
+[32m+            <button class="colab-df-convert" onclick="convertToInteractive('df-85fb7a34-5d12-4a7d-8787-5938172a062d')"
+[32m+                    title="Convert this dataframe to an interactive table."
+[32m+                    style="display:none;">
+[32m+        
+[32m+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+[32m+            <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+[32m+          </svg>
+[32m+            </button>
+[32m+        
+[32m+          <style>
+[32m+            .colab-df-container {
+[32m+              display:flex;
+[32m+              gap: 12px;
+[32m+            }
+[32m+        
+[32m+            .colab-df-convert {
+[32m+              background-color: #E8F0FE;
+[32m+              border: none;
+[32m+              border-radius: 50%;
+[32m+              cursor: pointer;
+[32m+              display: none;
+[32m+              fill: #1967D2;
+[32m+              height: 32px;
+[32m+              padding: 0 0 0 0;
+[32m+              width: 32px;
+[32m+            }
+[32m+        
+[32m+            .colab-df-convert:hover {
+[32m+              background-color: #E2EBFA;
+[32m+              box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+[32m+              fill: #174EA6;
+[32m+            }
+[32m+        
+[32m+            .colab-df-buttons div {
+[32m+              margin-bottom: 4px;
+[32m+            }
+[32m+        
+[32m+            [theme=dark] .colab-df-convert {
+[32m+              background-color: #3B4455;
+[32m+              fill: #D2E3FC;
+[32m+            }
+[32m+        
+[32m+            [theme=dark] .colab-df-convert:hover {
+[32m+              background-color: #434B5C;
+[32m+              box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+[32m+              filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+[32m+              fill: #FFFFFF;
+[32m+            }
+[32m+          </style>
+[32m+        
+[32m+            <script>
+[32m+              const buttonEl =
+[32m+                document.querySelector('#df-85fb7a34-5d12-4a7d-8787-5938172a062d button.colab-df-convert');
+[32m+              buttonEl.style.display =
+[32m+                google.colab.kernel.accessAllowed ? 'block' : 'none';
+[32m+        
+[32m+              async function convertToInteractive(key) {
+[32m+                const element = document.querySelector('#df-85fb7a34-5d12-4a7d-8787-5938172a062d');
+[32m+                const dataTable =
+[32m+                  await google.colab.kernel.invokeFunction('convertToInteractive',
+[32m+                                                            [key], {});
+[32m+                if (!dataTable) return;
+[32m+        
+[32m+                const docLinkHtml = 'Like what you see? Visit the ' +
+[32m+                  '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+[32m+                  + ' to learn more about interactive tables.';
+[32m+                element.innerHTML = '';
+[32m+                dataTable['output_type'] = 'display_data';
+[32m+                await google.colab.output.renderOutput(dataTable, element);
+[32m+                const docLink = document.createElement('div');
+[32m+                docLink.innerHTML = docLinkHtml;
+[32m+                element.appendChild(docLink);
+[32m+              }
+[32m+            </script>
+[32m+          </div>
+[32m+        
+[32m+        
+[32m+            </div>
+[32m+          </div>
+[32m+      text/plain:
+[32m+                                                   Sequences
+[32m+        1  CCGAGGGCTATGGTTTGGAAGTTAGAACCCTGGGGCTTCTCGCGGA...
+[32m+        2  GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGC...
+[32m+        3  GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTA...
+[32m+        4  GTCCACGACCGAACTCCCACCTTGACCGCAGAGGTACCACCAGAGC...
+[32m+        5  GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATA...
+
+[0m[34m[1m## deleted /cells/12/outputs/0:[0m
+[31m-  output:
+[31m-    output_type: execute_result
+[31m-    execution_count: 1
+[31m-    data:
+[31m-      application/vnd.google.colaboratory.intrinsic+json:
+[31m-        summary:
+[31m-          {
+[31m-            "name": "             columns=['Sequences'])",
+[31m-            "rows": 5,
+[31m-            "fields": [
+[31m-              {
+[31m-                "column": "Sequences",
+[31m-                "properties": {
+[31m-                  "dtype": "string",
+[31m-                  "num_unique_values": 5,
+[31m-                  "samples": [
+[31m-                    "GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGCGTCG",
+[31m-                    "GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATATGGT",
+[31m-                    "GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTAGCCT"
+[31m-                  ],
+[31m-                  "semantic_type": "",
+[31m-                  "description": ""
+[31m-                }
+[31m-              }
+[31m-            ]
+[31m-          }
+[31m-        type: dataframe
+[31m-      text/html:
+[31m-        
+[31m-          <div id="df-d4d416a3-1129-4c50-9909-088bba7fbf35" class="colab-df-container">
+[31m-            <div>
+[31m-        <style scoped>
+[31m-            .dataframe tbody tr th:only-of-type {
+[31m-                vertical-align: middle;
+[31m-            }
+[31m-        
+[31m-            .dataframe tbody tr th {
+[31m-                vertical-align: top;
+[31m-            }
+[31m-        
+[31m-            .dataframe thead th {
+[31m-                text-align: right;
+[31m-            }
+[31m-        </style>
+[31m-        <table border="1" class="dataframe">
+[31m-          <thead>
+[31m-            <tr style="text-align: right;">
+[31m-              <th></th>
+[31m-              <th>Sequences</th>
+[31m-            </tr>
+[31m-          </thead>
+[31m-          <tbody>
+[31m-            <tr>
+[31m-              <th>1</th>
+[31m-              <td>CCGAGGGCTATGGTTTGGAAGTTAGAACCCTGGGGCTTCTCGCGGA...</td>
+[31m-            </tr>
+[31m-            <tr>
+[31m-              <th>2</th>
+[31m-              <td>GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGC...</td>
+[31m-            </tr>
+[31m-            <tr>
+[31m-              <th>3</th>
+[31m-              <td>GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTA...</td>
+[31m-            </tr>
+[31m-            <tr>
+[31m-              <th>4</th>
+[31m-              <td>GTCCACGACCGAACTCCCACCTTGACCGCAGAGGTACCACCAGAGC...</td>
+[31m-            </tr>
+[31m-            <tr>
+[31m-              <th>5</th>
+[31m-              <td>GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATA...</td>
+[31m-            </tr>
+[31m-          </tbody>
+[31m-        </table>
+[31m-        </div>
+[31m-            <div class="colab-df-buttons">
+[31m-        
+[31m-          <div class="colab-df-container">
+[31m-            <button class="colab-df-convert" onclick="convertToInteractive('df-d4d416a3-1129-4c50-9909-088bba7fbf35')"
+[31m-                    title="Convert this dataframe to an interactive table."
+[31m-                    style="display:none;">
+[31m-        
+[31m-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+[31m-            <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+[31m-          </svg>
+[31m-            </button>
+[31m-        
+[31m-          <style>
+[31m-            .colab-df-container {
+[31m-              display:flex;
+[31m-              gap: 12px;
+[31m-            }
+[31m-        
+[31m-            .colab-df-convert {
+[31m-              background-color: #E8F0FE;
+[31m-              border: none;
+[31m-              border-radius: 50%;
+[31m-              cursor: pointer;
+[31m-              display: none;
+[31m-              fill: #1967D2;
+[31m-              height: 32px;
+[31m-              padding: 0 0 0 0;
+[31m-              width: 32px;
+[31m-            }
+[31m-        
+[31m-            .colab-df-convert:hover {
+[31m-              background-color: #E2EBFA;
+[31m-              box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+[31m-              fill: #174EA6;
+[31m-            }
+[31m-        
+[31m-            .colab-df-buttons div {
+[31m-              margin-bottom: 4px;
+[31m-            }
+[31m-        
+[31m-            [theme=dark] .colab-df-convert {
+[31m-              background-color: #3B4455;
+[31m-              fill: #D2E3FC;
+[31m-            }
+[31m-        
+[31m-            [theme=dark] .colab-df-convert:hover {
+[31m-              background-color: #434B5C;
+[31m-              box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+[31m-              filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+[31m-              fill: #FFFFFF;
+[31m-            }
+[31m-          </style>
+[31m-        
+[31m-            <script>
+[31m-              const buttonEl =
+[31m-                document.querySelector('#df-d4d416a3-1129-4c50-9909-088bba7fbf35 button.colab-df-convert');
+[31m-              buttonEl.style.display =
+[31m-                google.colab.kernel.accessAllowed ? 'block' : 'none';
+[31m-        
+[31m-              async function convertToInteractive(key) {
+[31m-                const element = document.querySelector('#df-d4d416a3-1129-4c50-9909-088bba7fbf35');
+[31m-                const dataTable =
+[31m-                  await google.colab.kernel.invokeFunction('convertToInteractive',
+[31m-                                                            [key], {});
+[31m-                if (!dataTable) return;
+[31m-        
+[31m-                const docLinkHtml = 'Like what you see? Visit the ' +
+[31m-                  '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+[31m-                  + ' to learn more about interactive tables.';
+[31m-                element.innerHTML = '';
+[31m-                dataTable['output_type'] = 'display_data';
+[31m-                await google.colab.output.renderOutput(dataTable, element);
+[31m-                const docLink = document.createElement('div');
+[31m-                docLink.innerHTML = docLinkHtml;
+[31m-                element.appendChild(docLink);
+[31m-              }
+[31m-            </script>
+[31m-          </div>
+[31m-        
+[31m-        
+[31m-        <div id="df-907ed950-b902-48a9-ba09-a7ff550018b3">
+[31m-          <button class="colab-df-quickchart" onclick="quickchart('df-907ed950-b902-48a9-ba09-a7ff550018b3')"
+[31m-                    title="Suggest charts"
+[31m-                    style="display:none;">
+[31m-        
+[31m-        <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+[31m-             width="24px">
+[31m-            <g>
+[31m-                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+[31m-            </g>
+[31m-        </svg>
+[31m-          </button>
+[31m-        
+[31m-        <style>
+[31m-          .colab-df-quickchart {
+[31m-              --bg-color: #E8F0FE;
+[31m-              --fill-color: #1967D2;
+[31m-              --hover-bg-color: #E2EBFA;
+[31m-              --hover-fill-color: #174EA6;
+[31m-              --disabled-fill-color: #AAA;
+[31m-              --disabled-bg-color: #DDD;
+[31m-          }
+[31m-        
+[31m-          [theme=dark] .colab-df-quickchart {
+[31m-              --bg-color: #3B4455;
+[31m-              --fill-color: #D2E3FC;
+[31m-              --hover-bg-color: #434B5C;
+[31m-              --hover-fill-color: #FFFFFF;
+[31m-              --disabled-bg-color: #3B4455;
+[31m-              --disabled-fill-color: #666;
+[31m-          }
+[31m-        
+[31m-          .colab-df-quickchart {
+[31m-            background-color: var(--bg-color);
+[31m-            border: none;
+[31m-            border-radius: 50%;
+[31m-            cursor: pointer;
+[31m-            display: none;
+[31m-            fill: var(--fill-color);
+[31m-            height: 32px;
+[31m-            padding: 0;
+[31m-            width: 32px;
+[31m-          }
+[31m-        
+[31m-          .colab-df-quickchart:hover {
+[31m-            background-color: var(--hover-bg-color);
+[31m-            box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+[31m-            fill: var(--button-hover-fill-color);
+[31m-          }
+[31m-        
+[31m-          .colab-df-quickchart-complete:disabled,
+[31m-          .colab-df-quickchart-complete:disabled:hover {
+[31m-            background-color: var(--disabled-bg-color);
+[31m-            fill: var(--disabled-fill-color);
+[31m-            box-shadow: none;
+[31m-          }
+[31m-        
+[31m-          .colab-df-spinner {
+[31m-            border: 2px solid var(--fill-color);
+[31m-            border-color: transparent;
+[31m-            border-bottom-color: var(--fill-color);
+[31m-            animation:
+[31m-              spin 1s steps(1) infinite;
+[31m-          }
+[31m-        
+[31m-          @keyframes spin {
+[31m-            0% {
+[31m-              border-color: transparent;
+[31m-              border-bottom-color: var(--fill-color);
+[31m-              border-left-color: var(--fill-color);
+[31m-            }
+[31m-            20% {
+[31m-              border-color: transparent;
+[31m-              border-left-color: var(--fill-color);
+[31m-              border-top-color: var(--fill-color);
+[31m-            }
+[31m-            30% {
+[31m-              border-color: transparent;
+[31m-              border-left-color: var(--fill-color);
+[31m-              border-top-color: var(--fill-color);
+[31m-              border-right-color: var(--fill-color);
+[31m-            }
+[31m-            40% {
+[31m-              border-color: transparent;
+[31m-              border-right-color: var(--fill-color);
+[31m-              border-top-color: var(--fill-color);
+[31m-            }
+[31m-            60% {
+[31m-              border-color: transparent;
+[31m-              border-right-color: var(--fill-color);
+[31m-            }
+[31m-            80% {
+[31m-              border-color: transparent;
+[31m-              border-right-color: var(--fill-color);
+[31m-              border-bottom-color: var(--fill-color);
+[31m-            }
+[31m-            90% {
+[31m-              border-color: transparent;
+[31m-              border-bottom-color: var(--fill-color);
+[31m-            }
+[31m-          }
+[31m-        </style>
+[31m-        
+[31m-          <script>
+[31m-            async function quickchart(key) {
+[31m-              const quickchartButtonEl =
+[31m-                document.querySelector('#' + key + ' button');
+[31m-              quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+[31m-              quickchartButtonEl.classList.add('colab-df-spinner');
+[31m-              try {
+[31m-                const charts = await google.colab.kernel.invokeFunction(
+[31m-                    'suggestCharts', [key], {});
+[31m-              } catch (error) {
+[31m-                console.error('Error during call to suggestCharts:', error);
+[31m-              }
+[31m-              quickchartButtonEl.classList.remove('colab-df-spinner');
+[31m-              quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+[31m-            }
+[31m-            (() => {
+[31m-              let quickchartButtonEl =
+[31m-                document.querySelector('#df-907ed950-b902-48a9-ba09-a7ff550018b3 button');
+[31m-              quickchartButtonEl.style.display =
+[31m-                google.colab.kernel.accessAllowed ? 'block' : 'none';
+[31m-            })();
+[31m-          </script>
+[31m-        </div>
+[31m-        
+[31m-            </div>
+[31m-          </div>
+[31m-      text/plain:
+[31m-                                                   Sequences
+[31m-        1  CCGAGGGCTATGGTTTGGAAGTTAGAACCCTGGGGCTTCTCGCGGA...
+[31m-        2  GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGC...
+[31m-        3  GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTA...
+[31m-        4  GTCCACGACCGAACTCCCACCTTGACCGCAGAGGTACCACCAGAGC...
+[31m-        5  GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATA...
+
+[0m[34m[1m## modified /cells/14/metadata/outputId:[0m
+[31m-  d5be18fd-fb7e-42a6-a562-03df0a4f83ab
+[32m+  e52a310f-7919-4d95-aed4-4bd644e59256
+
+[0m[34m[1m## modified /cells/16/metadata/outputId:[0m
+[31m-  4cde4ee9-03c4-485e-e976-cc367a29414c
+[32m+  e9206919-b817-4500-9143-a24332ceeb52
+
+[0m[34m[1m## replaced /cells/22/metadata/colab/height:[0m
+[31m-  353
+[32m+  344
+
+[0m[34m[1m## modified /cells/22/metadata/outputId:[0m
+[31m-  3f2f452c-e80c-48fd-dfdb-a489a4e7ab19
+[32m+  445b4994-bde2-4660-eba6-22415f0e62c4
+
+[0m[34m[1m## modified /cells/22/outputs/0/text:[0m
+[36m@@ -1,2 +1,2 @@[m
+[31m-/usr/local/lib/python3.11/dist-packages/keras/src/layers/convolutional/base_conv.py:107: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.[m
+[32m+[m[32m/usr/local/lib/python3.12/dist-packages/keras/src/layers/convolutional/base_conv.py:113: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.[m
+   super().__init__(activity_regularizer=activity_regularizer, **kwargs)[m
+
+[0m[34m[1m## modified /cells/22/outputs/2/data/text/html:[0m
+[36m@@ -1,14 +1,14 @@[m
+[31m-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓[m
+[31m-┃<span style="font-weight: bold"> Layer (type)                         </span>┃<span style="font-weight: bold"> Output Shape                </span>┃<span style="font-weight: bold">         Param # </span>┃[m
+[31m-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩[m
+[31m-│ conv1d (<span style="color: #0087ff; text-decoration-color: #0087ff">Conv1D</span>)                      │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">39</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>)              │           <span style="color: #00af00; text-decoration-color: #00af00">1,568</span> │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ max_pooling1d (<span style="color: #0087ff; text-decoration-color: #0087ff">MaxPooling1D</span>)         │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">9</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>)               │               <span style="color: #00af00; text-decoration-color: #00af00">0</span> │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ flatten (<span style="color: #0087ff; text-decoration-color: #0087ff">Flatten</span>)                    │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">288</span>)                 │               <span style="color: #00af00; text-decoration-color: #00af00">0</span> │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ dense (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                        │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">16</span>)                  │           <span style="color: #00af00; text-decoration-color: #00af00">4,624</span> │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ dense_1 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                      │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">2</span>)                   │              <span style="color: #00af00; text-decoration-color: #00af00">34</span> │[m
+[31m-└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘[m
+[32m+[m[32m<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓[m
+[32m+[m[32m┃<span style="font-weight: bold"> Layer (type)                    </span>┃<span style="font-weight: bold"> Output Shape           </span>┃<span style="font-weight: bold">       Param # </span>┃[m
+[32m+[m[32m┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩[m
+[32m+[m[32m│ conv1d (<span style="color: #0087ff; text-decoration-color: #0087ff">Conv1D</span>)                 │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">39</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>)         │         <span style="color: #00af00; text-decoration-color: #00af00">1,568</span> │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ max_pooling1d (<span style="color: #0087ff; text-decoration-color: #0087ff">MaxPooling1D</span>)    │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">9</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>)          │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ flatten (<span style="color: #0087ff; text-decoration-color: #0087ff">Flatten</span>)               │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">288</span>)            │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ dense (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                   │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">16</span>)             │         <span style="color: #00af00; text-decoration-color: #00af00">4,624</span> │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ dense_1 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                 │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">2</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">34</span> │[m
+[32m+[m[32m└─────────────────────────────────┴────────────────────────┴───────────────┘[m
+ </pre>[m
+
+[0m[34m[1m## modified /cells/22/outputs/2/data/text/plain:[0m
+[36m@@ -1,13 +1,13 @@[m
+[31m-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓[m
+[31m-┃[1m [0m[1mLayer (type)                        [0m[1m [0m┃[1m [0m[1mOutput Shape               [0m[1m [0m┃[1m [0m[1m        Param #[0m[1m [0m┃[m
+[31m-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩[m
+[31m-│ conv1d ([38;5;33mConv1D[0m)                      │ ([38;5;45mNone[0m, [38;5;34m39[0m, [38;5;34m32[0m)              │           [38;5;34m1,568[0m │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ max_pooling1d ([38;5;33mMaxPooling1D[0m)         │ ([38;5;45mNone[0m, [38;5;34m9[0m, [38;5;34m32[0m)               │               [38;5;34m0[0m │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ flatten ([38;5;33mFlatten[0m)                    │ ([38;5;45mNone[0m, [38;5;34m288[0m)                 │               [38;5;34m0[0m │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ dense ([38;5;33mDense[0m)                        │ ([38;5;45mNone[0m, [38;5;34m16[0m)                  │           [38;5;34m4,624[0m │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ dense_1 ([38;5;33mDense[0m)                      │ ([38;5;45mNone[0m, [38;5;34m2[0m)                   │              [38;5;34m34[0m │[m
+[31m-└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘[m
+[32m+[m[32m┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓[m
+[32m+[m[32m┃[1m [0m[1mLayer (type)                   [0m[1m [0m┃[1m [0m[1mOutput Shape          [0m[1m [0m┃[1m [0m[1m      Param #[0m[1m [0m┃[m
+[32m+[m[32m┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩[m
+[32m+[m[32m│ conv1d ([38;5;33mConv1D[0m)                 │ ([38;5;45mNone[0m, [38;5;34m39[0m, [38;5;34m32[0m)         │         [38;5;34m1,568[0m │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ max_pooling1d ([38;5;33mMaxPooling1D[0m)    │ ([38;5;45mNone[0m, [38;5;34m9[0m, [38;5;34m32[0m)          │             [38;5;34m0[0m │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ flatten ([38;5;33mFlatten[0m)               │ ([38;5;45mNone[0m, [38;5;34m288[0m)            │             [38;5;34m0[0m │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ dense ([38;5;33mDense[0m)                   │ ([38;5;45mNone[0m, [38;5;34m16[0m)             │         [38;5;34m4,624[0m │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ dense_1 ([38;5;33mDense[0m)                 │ ([38;5;45mNone[0m, [38;5;34m2[0m)              │            [38;5;34m34[0m │[m
+[32m+[m[32m└─────────────────────────────────┴────────────────────────┴───────────────┘[m
+
+[0m[34m[1m## replaced /cells/23/metadata/colab/height:[0m
+[31m-  298
+[32m+  289
+
+[0m[34m[1m## modified /cells/23/metadata/outputId:[0m
+[31m-  5d0116c2-77ba-407f-c40a-87685837c92b
+[32m+  129959db-1e62-4573-861d-4b01bc9831a7
+
+[0m[34m[1m## modified /cells/23/outputs/1/data/text/html:[0m
+[36m@@ -1,14 +1,14 @@[m
+[31m-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓[m
+[31m-┃<span style="font-weight: bold"> Layer (type)                         </span>┃<span style="font-weight: bold"> Output Shape                </span>┃<span style="font-weight: bold">         Param # </span>┃[m
+[31m-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩[m
+[31m-│ conv1d_1 (<span style="color: #0087ff; text-decoration-color: #0087ff">Conv1D</span>)                    │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">39</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>)              │           <span style="color: #00af00; text-decoration-color: #00af00">1,568</span> │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ max_pooling1d_1 (<span style="color: #0087ff; text-decoration-color: #0087ff">MaxPooling1D</span>)       │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">9</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>)               │               <span style="color: #00af00; text-decoration-color: #00af00">0</span> │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ flatten_1 (<span style="color: #0087ff; text-decoration-color: #0087ff">Flatten</span>)                  │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">288</span>)                 │               <span style="color: #00af00; text-decoration-color: #00af00">0</span> │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ dense_2 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                      │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">16</span>)                  │           <span style="color: #00af00; text-decoration-color: #00af00">4,624</span> │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ dense_3 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                      │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">2</span>)                   │              <span style="color: #00af00; text-decoration-color: #00af00">34</span> │[m
+[31m-└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘[m
+[32m+[m[32m<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓[m
+[32m+[m[32m┃<span style="font-weight: bold"> Layer (type)                    </span>┃<span style="font-weight: bold"> Output Shape           </span>┃<span style="font-weight: bold">       Param # </span>┃[m
+[32m+[m[32m┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩[m
+[32m+[m[32m│ conv1d_1 (<span style="color: #0087ff; text-decoration-color: #0087ff">Conv1D</span>)               │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">39</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>)         │         <span style="color: #00af00; text-decoration-color: #00af00">1,568</span> │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ max_pooling1d_1 (<span style="color: #0087ff; text-decoration-color: #0087ff">MaxPooling1D</span>)  │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">9</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>)          │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ flatten_1 (<span style="color: #0087ff; text-decoration-color: #0087ff">Flatten</span>)             │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">288</span>)            │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ dense_2 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                 │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">16</span>)             │         <span style="color: #00af00; text-decoration-color: #00af00">4,624</span> │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ dense_3 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                 │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">2</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">34</span> │[m
+[32m+[m[32m└─────────────────────────────────┴────────────────────────┴───────────────┘[m
+ </pre>[m
+
+[0m[34m[1m## modified /cells/23/outputs/1/data/text/plain:[0m
+[36m@@ -1,13 +1,13 @@[m
+[31m-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓[m
+[31m-┃[1m [0m[1mLayer (type)                        [0m[1m [0m┃[1m [0m[1mOutput Shape               [0m[1m [0m┃[1m [0m[1m        Param #[0m[1m [0m┃[m
+[31m-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩[m
+[31m-│ conv1d_1 ([38;5;33mConv1D[0m)                    │ ([38;5;45mNone[0m, [38;5;34m39[0m, [38;5;34m32[0m)              │           [38;5;34m1,568[0m │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ max_pooling1d_1 ([38;5;33mMaxPooling1D[0m)       │ ([38;5;45mNone[0m, [38;5;34m9[0m, [38;5;34m32[0m)               │               [38;5;34m0[0m │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ flatten_1 ([38;5;33mFlatten[0m)                  │ ([38;5;45mNone[0m, [38;5;34m288[0m)                 │               [38;5;34m0[0m │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ dense_2 ([38;5;33mDense[0m)                      │ ([38;5;45mNone[0m, [38;5;34m16[0m)                  │           [38;5;34m4,624[0m │[m
+[31m-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤[m
+[31m-│ dense_3 ([38;5;33mDense[0m)                      │ ([38;5;45mNone[0m, [38;5;34m2[0m)                   │              [38;5;34m34[0m │[m
+[31m-└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘[m
+[32m+[m[32m┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓[m
+[32m+[m[32m┃[1m [0m[1mLayer (type)                   [0m[1m [0m┃[1m [0m[1mOutput Shape          [0m[1m [0m┃[1m [0m[1m      Param #[0m[1m [0m┃[m
+[32m+[m[32m┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩[m
+[32m+[m[32m│ conv1d_1 ([38;5;33mConv1D[0m)               │ ([38;5;45mNone[0m, [38;5;34m39[0m, [38;5;34m32[0m)         │         [38;5;34m1,568[0m │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ max_pooling1d_1 ([38;5;33mMaxPooling1D[0m)  │ ([38;5;45mNone[0m, [38;5;34m9[0m, [38;5;34m32[0m)          │             [38;5;34m0[0m │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ flatten_1 ([38;5;33mFlatten[0m)             │ ([38;5;45mNone[0m, [38;5;34m288[0m)            │             [38;5;34m0[0m │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ dense_2 ([38;5;33mDense[0m)                 │ ([38;5;45mNone[0m, [38;5;34m16[0m)             │         [38;5;34m4,624[0m │[m
+[32m+[m[32m├─────────────────────────────────┼────────────────────────┼───────────────┤[m
+[32m+[m[32m│ dense_3 ([38;5;33mDense[0m)                 │ ([38;5;45mNone[0m, [38;5;34m2[0m)              │            [38;5;34m34[0m │[m
+[32m+[m[32m└─────────────────────────────────┴────────────────────────┴───────────────┘[m
+
+[0m[34m[1m## modified /cells/25/metadata/outputId:[0m
+[31m-  672990af-6256-4cb6-fd5a-5a6fd0356a42
+[32m+  bea7553f-a957-401c-c2a0-076bbc9853e6
+
+[0m[34m[1m## inserted before /cells/25/outputs/0:[0m
+[32m+  output:
+[32m+    output_type: display_data
+[32m+    data:
+[32m+      image/png: iVBORw0K...<snip base64, md5=50ce6e27fe16e9ec...>
+[32m+      text/plain: <Figure size 640x480 with 1 Axes>
+
+[0m[34m[1m## deleted /cells/25/outputs/0:[0m
+[31m-  output:
+[31m-    output_type: display_data
+[31m-    data:
+[31m-      image/png: iVBORw0K...<snip base64, md5=95e9fb3c1c627be2...>
+[31m-      text/plain: <Figure size 640x480 with 1 Axes>
+
+[0m[34m[1m## modified /cells/27/metadata/outputId:[0m
+[31m-  424a327d-0136-410b-f323-a2c94a667c60
+[32m+  cd10742f-a49b-4a18-fc5a-ddb2937c6d03
+
+[0m[34m[1m## inserted before /cells/27/outputs/0:[0m
+[32m+  output:
+[32m+    output_type: display_data
+[32m+    data:
+[32m+      image/png: iVBORw0K...<snip base64, md5=00a81b00de51ba98...>
+[32m+      text/plain: <Figure size 640x480 with 1 Axes>
+
+[0m[34m[1m## deleted /cells/27/outputs/0:[0m
+[31m-  output:
+[31m-    output_type: display_data
+[31m-    data:
+[31m-      image/png: iVBORw0K...<snip base64, md5=442afb7d354890af...>
+[31m-      text/plain: <Figure size 640x480 with 1 Axes>
+
+[0m[34m[1m## replaced /cells/31/metadata/colab/height:[0m
+[31m-  543
+[32m+  541
+
+[0m[34m[1m## modified /cells/31/metadata/outputId:[0m
+[31m-  df1dc04e-685a-49cd-c7ca-8d59e4b5ec1f
+[32m+  b0d9a604-0417-4f8d-ae35-fbb6779190c2
+
+[0m[34m[1m## modified /cells/31/outputs/0/text:[0m
+[36m@@ -1,4 +1,4 @@[m
+[31m-[1m16/16[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 32ms/step[m
+[32m+[m[32m[1m16/16[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 81ms/step[m
+ Confusion matrix:[m
+[31m- [[251   8][m
+[31m- [  2 239]][m
+[32m+[m[32m [[250   9][m
+[32m+[m[32m [  4 237]][m
+
+[0m[34m[1m## inserted before /cells/31/outputs/1:[0m
+[32m+  output:
+[32m+    output_type: display_data
+[32m+    data:
+[32m+      image/png: iVBORw0K...<snip base64, md5=f05b4ea93bcb4cc6...>
+[32m+      text/plain: <Figure size 640x480 with 2 Axes>
+
+[0m[34m[1m## deleted /cells/31/outputs/1:[0m
+[31m-  output:
+[31m-    output_type: display_data
+[31m-    data:
+[31m-      image/png: iVBORw0K...<snip base64, md5=2f594a2d6062df2c...>
+[31m-      text/plain: <Figure size 640x480 with 2 Axes>
+
+[0m[34m[1m## replaced (type changed from int to NoneType) /cells/39/execution_count:[0m
+[31m-  9
+[32m+  None
+
+[0m[34m[1m## replaced (type changed from int to NoneType) /cells/40/execution_count:[0m
+[31m-  9
+[32m+  None
+
+[0m[34m[1m## replaced (type changed from int to NoneType) /cells/41/execution_count:[0m
+[31m-  9
+[32m+  None
+
+[0m[34m[1m## modified /cells/43/metadata/outputId:[0m
+[31m-  0ee5153c-8863-4abc-baf9-8ac25c869197
+[32m+  be880608-b51e-4a4f-b4c9-199ff374465d
+
+[0m[34m[1m## inserted before /cells/43/outputs/0:[0m
+[32m+  output:
+[32m+    output_type: execute_result
+[32m+    execution_count: 10
+[32m+    data:
+[32m+      application/vnd.google.colaboratory.intrinsic+json:
+[32m+        summary:
+[32m+          {
+[32m+            "name": "             columns=['Sequences'])",
+[32m+            "rows": 5,
+[32m+            "fields": [
+[32m+              {
+[32m+                "column": "Sequences",
+[32m+                "properties": {
+[32m+                  "dtype": "string",
+[32m+                  "num_unique_values": 5,
+[32m+                  "samples": [
+[32m+                    "GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGCGTCG",
+[32m+                    "GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATATGGT",
+[32m+                    "GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTAGCCT"
+[32m+                  ],
+[32m+                  "semantic_type": "",
+[32m+                  "description": ""
+[32m+                }
+[32m+              }
+[32m+            ]
+[32m+          }
+[32m+        type: dataframe
+[32m+      text/html:
+[32m+        
+[32m+          <div id="df-5fc84324-0f3d-4892-82e8-cd70bc448f77" class="colab-df-container">
+[32m+            <div>
+[32m+        <style scoped>
+[32m+            .dataframe tbody tr th:only-of-type {
+[32m+                vertical-align: middle;
+[32m+            }
+[32m+        
+[32m+            .dataframe tbody tr th {
+[32m+                vertical-align: top;
+[32m+            }
+[32m+        
+[32m+            .dataframe thead th {
+[32m+                text-align: right;
+[32m+            }
+[32m+        </style>
+[32m+        <table border="1" class="dataframe">
+[32m+          <thead>
+[32m+            <tr style="text-align: right;">
+[32m+              <th></th>
+[32m+              <th>Sequences</th>
+[32m+            </tr>
+[32m+          </thead>
+[32m+          <tbody>
+[32m+            <tr>
+[32m+              <th>1</th>
+[32m+              <td>CCGAGGGCTATGGTTTGGAAGTTAGAACCCTGGGGCTTCTCGCGGA...</td>
+[32m+            </tr>
+[32m+            <tr>
+[32m+              <th>2</th>
+[32m+              <td>GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGC...</td>
+[32m+            </tr>
+[32m+            <tr>
+[32m+              <th>3</th>
+[32m+              <td>GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTA...</td>
+[32m+            </tr>
+[32m+            <tr>
+[32m+              <th>4</th>
+[32m+              <td>GTCCACGACCGAACTCCCACCTTGACCGCAGAGGTACCACCAGAGC...</td>
+[32m+            </tr>
+[32m+            <tr>
+[32m+              <th>5</th>
+[32m+              <td>GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATA...</td>
+[32m+            </tr>
+[32m+          </tbody>
+[32m+        </table>
+[32m+        </div>
+[32m+            <div class="colab-df-buttons">
+[32m+        
+[32m+          <div class="colab-df-container">
+[32m+            <button class="colab-df-convert" onclick="convertToInteractive('df-5fc84324-0f3d-4892-82e8-cd70bc448f77')"
+[32m+                    title="Convert this dataframe to an interactive table."
+[32m+                    style="display:none;">
+[32m+        
+[32m+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+[32m+            <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+[32m+          </svg>
+[32m+            </button>
+[32m+        
+[32m+          <style>
+[32m+            .colab-df-container {
+[32m+              display:flex;
+[32m+              gap: 12px;
+[32m+            }
+[32m+        
+[32m+            .colab-df-convert {
+[32m+              background-color: #E8F0FE;
+[32m+              border: none;
+[32m+              border-radius: 50%;
+[32m+              cursor: pointer;
+[32m+              display: none;
+[32m+              fill: #1967D2;
+[32m+              height: 32px;
+[32m+              padding: 0 0 0 0;
+[32m+              width: 32px;
+[32m+            }
+[32m+        
+[32m+            .colab-df-convert:hover {
+[32m+              background-color: #E2EBFA;
+[32m+              box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+[32m+              fill: #174EA6;
+[32m+            }
+[32m+        
+[32m+            .colab-df-buttons div {
+[32m+              margin-bottom: 4px;
+[32m+            }
+[32m+        
+[32m+            [theme=dark] .colab-df-convert {
+[32m+              background-color: #3B4455;
+[32m+              fill: #D2E3FC;
+[32m+            }
+[32m+        
+[32m+            [theme=dark] .colab-df-convert:hover {
+[32m+              background-color: #434B5C;
+[32m+              box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+[32m+              filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+[32m+              fill: #FFFFFF;
+[32m+            }
+[32m+          </style>
+[32m+        
+[32m+            <script>
+[32m+              const buttonEl =
+[32m+                document.querySelector('#df-5fc84324-0f3d-4892-82e8-cd70bc448f77 button.colab-df-convert');
+[32m+              buttonEl.style.display =
+[32m+                google.colab.kernel.accessAllowed ? 'block' : 'none';
+[32m+        
+[32m+              async function convertToInteractive(key) {
+[32m+                const element = document.querySelector('#df-5fc84324-0f3d-4892-82e8-cd70bc448f77');
+[32m+                const dataTable =
+[32m+                  await google.colab.kernel.invokeFunction('convertToInteractive',
+[32m+                                                            [key], {});
+[32m+                if (!dataTable) return;
+[32m+        
+[32m+                const docLinkHtml = 'Like what you see? Visit the ' +
+[32m+                  '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+[32m+                  + ' to learn more about interactive tables.';
+[32m+                element.innerHTML = '';
+[32m+                dataTable['output_type'] = 'display_data';
+[32m+                await google.colab.output.renderOutput(dataTable, element);
+[32m+                const docLink = document.createElement('div');
+[32m+                docLink.innerHTML = docLinkHtml;
+[32m+                element.appendChild(docLink);
+[32m+              }
+[32m+            </script>
+[32m+          </div>
+[32m+        
+[32m+        
+[32m+            </div>
+[32m+          </div>
+[32m+      text/plain:
+[32m+                                                   Sequences
+[32m+        1  CCGAGGGCTATGGTTTGGAAGTTAGAACCCTGGGGCTTCTCGCGGA...
+[32m+        2  GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGC...
+[32m+        3  GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTA...
+[32m+        4  GTCCACGACCGAACTCCCACCTTGACCGCAGAGGTACCACCAGAGC...
+[32m+        5  GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATA...
+
+[0m[34m[1m## deleted /cells/43/outputs/0:[0m
+[31m-  output:
+[31m-    output_type: execute_result
+[31m-    execution_count: 10
+[31m-    data:
+[31m-      application/vnd.google.colaboratory.intrinsic+json:
+[31m-        summary:
+[31m-          {
+[31m-            "name": "             columns=['Sequences'])",
+[31m-            "rows": 5,
+[31m-            "fields": [
+[31m-              {
+[31m-                "column": "Sequences",
+[31m-                "properties": {
+[31m-                  "dtype": "string",
+[31m-                  "num_unique_values": 5,
+[31m-                  "samples": [
+[31m-                    "GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGCGTCG",
+[31m-                    "GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATATGGT",
+[31m-                    "GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTAGCCT"
+[31m-                  ],
+[31m-                  "semantic_type": "",
+[31m-                  "description": ""
+[31m-                }
+[31m-              }
+[31m-            ]
+[31m-          }
+[31m-        type: dataframe
+[31m-      text/html:
+[31m-        
+[31m-          <div id="df-c080c536-ea66-432c-aebc-a7e78cfdde35" class="colab-df-container">
+[31m-            <div>
+[31m-        <style scoped>
+[31m-            .dataframe tbody tr th:only-of-type {
+[31m-                vertical-align: middle;
+[31m-            }
+[31m-        
+[31m-            .dataframe tbody tr th {
+[31m-                vertical-align: top;
+[31m-            }
+[31m-        
+[31m-            .dataframe thead th {
+[31m-                text-align: right;
+[31m-            }
+[31m-        </style>
+[31m-        <table border="1" class="dataframe">
+[31m-          <thead>
+[31m-            <tr style="text-align: right;">
+[31m-              <th></th>
+[31m-              <th>Sequences</th>
+[31m-            </tr>
+[31m-          </thead>
+[31m-          <tbody>
+[31m-            <tr>
+[31m-              <th>1</th>
+[31m-              <td>CCGAGGGCTATGGTTTGGAAGTTAGAACCCTGGGGCTTCTCGCGGA...</td>
+[31m-            </tr>
+[31m-            <tr>
+[31m-              <th>2</th>
+[31m-              <td>GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGC...</td>
+[31m-            </tr>
+[31m-            <tr>
+[31m-              <th>3</th>
+[31m-              <td>GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTA...</td>
+[31m-            </tr>
+[31m-            <tr>
+[31m-              <th>4</th>
+[31m-              <td>GTCCACGACCGAACTCCCACCTTGACCGCAGAGGTACCACCAGAGC...</td>
+[31m-            </tr>
+[31m-            <tr>
+[31m-              <th>5</th>
+[31m-              <td>GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATA...</td>
+[31m-            </tr>
+[31m-          </tbody>
+[31m-        </table>
+[31m-        </div>
+[31m-            <div class="colab-df-buttons">
+[31m-        
+[31m-          <div class="colab-df-container">
+[31m-            <button class="colab-df-convert" onclick="convertToInteractive('df-c080c536-ea66-432c-aebc-a7e78cfdde35')"
+[31m-                    title="Convert this dataframe to an interactive table."
+[31m-                    style="display:none;">
+[31m-        
+[31m-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+[31m-            <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+[31m-          </svg>
+[31m-            </button>
+[31m-        
+[31m-          <style>
+[31m-            .colab-df-container {
+[31m-              display:flex;
+[31m-              gap: 12px;
+[31m-            }
+[31m-        
+[31m-            .colab-df-convert {
+[31m-              background-color: #E8F0FE;
+[31m-              border: none;
+[31m-              border-radius: 50%;
+[31m-              cursor: pointer;
+[31m-              display: none;
+[31m-              fill: #1967D2;
+[31m-              height: 32px;
+[31m-              padding: 0 0 0 0;
+[31m-              width: 32px;
+[31m-            }
+[31m-        
+[31m-            .colab-df-convert:hover {
+[31m-              background-color: #E2EBFA;
+[31m-              box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+[31m-              fill: #174EA6;
+[31m-            }
+[31m-        
+[31m-            .colab-df-buttons div {
+[31m-              margin-bottom: 4px;
+[31m-            }
+[31m-        
+[31m-            [theme=dark] .colab-df-convert {
+[31m-              background-color: #3B4455;
+[31m-              fill: #D2E3FC;
+[31m-            }
+[31m-        
+[31m-            [theme=dark] .colab-df-convert:hover {
+[31m-              background-color: #434B5C;
+[31m-              box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+[31m-              filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+[31m-              fill: #FFFFFF;
+[31m-            }
+[31m-          </style>
+[31m-        
+[31m-            <script>
+[31m-              const buttonEl =
+[31m-                document.querySelector('#df-c080c536-ea66-432c-aebc-a7e78cfdde35 button.colab-df-convert');
+[31m-              buttonEl.style.display =
+[31m-                google.colab.kernel.accessAllowed ? 'block' : 'none';
+[31m-        
+[31m-              async function convertToInteractive(key) {
+[31m-                const element = document.querySelector('#df-c080c536-ea66-432c-aebc-a7e78cfdde35');
+[31m-                const dataTable =
+[31m-                  await google.colab.kernel.invokeFunction('convertToInteractive',
+[31m-                                                            [key], {});
+[31m-                if (!dataTable) return;
+[31m-        
+[31m-                const docLinkHtml = 'Like what you see? Visit the ' +
+[31m-                  '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+[31m-                  + ' to learn more about interactive tables.';
+[31m-                element.innerHTML = '';
+[31m-                dataTable['output_type'] = 'display_data';
+[31m-                await google.colab.output.renderOutput(dataTable, element);
+[31m-                const docLink = document.createElement('div');
+[31m-                docLink.innerHTML = docLinkHtml;
+[31m-                element.appendChild(docLink);
+[31m-              }
+[31m-            </script>
+[31m-          </div>
+[31m-        
+[31m-        
+[31m-        <div id="df-085cc747-ad7b-40a9-a711-15d67d970f3c">
+[31m-          <button class="colab-df-quickchart" onclick="quickchart('df-085cc747-ad7b-40a9-a711-15d67d970f3c')"
+[31m-                    title="Suggest charts"
+[31m-                    style="display:none;">
+[31m-        
+[31m-        <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+[31m-             width="24px">
+[31m-            <g>
+[31m-                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+[31m-            </g>
+[31m-        </svg>
+[31m-          </button>
+[31m-        
+[31m-        <style>
+[31m-          .colab-df-quickchart {
+[31m-              --bg-color: #E8F0FE;
+[31m-              --fill-color: #1967D2;
+[31m-              --hover-bg-color: #E2EBFA;
+[31m-              --hover-fill-color: #174EA6;
+[31m-              --disabled-fill-color: #AAA;
+[31m-              --disabled-bg-color: #DDD;
+[31m-          }
+[31m-        
+[31m-          [theme=dark] .colab-df-quickchart {
+[31m-              --bg-color: #3B4455;
+[31m-              --fill-color: #D2E3FC;
+[31m-              --hover-bg-color: #434B5C;
+[31m-              --hover-fill-color: #FFFFFF;
+[31m-              --disabled-bg-color: #3B4455;
+[31m-              --disabled-fill-color: #666;
+[31m-          }
+[31m-        
+[31m-          .colab-df-quickchart {
+[31m-            background-color: var(--bg-color);
+[31m-            border: none;
+[31m-            border-radius: 50%;
+[31m-            cursor: pointer;
+[31m-            display: none;
+[31m-            fill: var(--fill-color);
+[31m-            height: 32px;
+[31m-            padding: 0;
+[31m-            width: 32px;
+[31m-          }
+[31m-        
+[31m-          .colab-df-quickchart:hover {
+[31m-            background-color: var(--hover-bg-color);
+[31m-            box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+[31m-            fill: var(--button-hover-fill-color);
+[31m-          }
+[31m-        
+[31m-          .colab-df-quickchart-complete:disabled,
+[31m-          .colab-df-quickchart-complete:disabled:hover {
+[31m-            background-color: var(--disabled-bg-color);
+[31m-            fill: var(--disabled-fill-color);
+[31m-            box-shadow: none;
+[31m-          }
+[31m-        
+[31m-          .colab-df-spinner {
+[31m-            border: 2px solid var(--fill-color);
+[31m-            border-color: transparent;
+[31m-            border-bottom-color: var(--fill-color);
+[31m-            animation:
+[31m-              spin 1s steps(1) infinite;
+[31m-          }
+[31m-        
+[31m-          @keyframes spin {
+[31m-            0% {
+[31m-              border-color: transparent;
+[31m-              border-bottom-color: var(--fill-color);
+[31m-              border-left-color: var(--fill-color);
+[31m-            }
+[31m-            20% {
+[31m-              border-color: transparent;
+[31m-              border-left-color: var(--fill-color);
+[31m-              border-top-color: var(--fill-color);
+[31m-            }
+[31m-            30% {
+[31m-              border-color: transparent;
+[31m-              border-left-color: var(--fill-color);
+[31m-              border-top-color: var(--fill-color);
+[31m-              border-right-color: var(--fill-color);
+[31m-            }
+[31m-            40% {
+[31m-              border-color: transparent;
+[31m-              border-right-color: var(--fill-color);
+[31m-              border-top-color: var(--fill-color);
+[31m-            }
+[31m-            60% {
+[31m-              border-color: transparent;
+[31m-              border-right-color: var(--fill-color);
+[31m-            }
+[31m-            80% {
+[31m-              border-color: transparent;
+[31m-              border-right-color: var(--fill-color);
+[31m-              border-bottom-color: var(--fill-color);
+[31m-            }
+[31m-            90% {
+[31m-              border-color: transparent;
+[31m-              border-bottom-color: var(--fill-color);
+[31m-            }
+[31m-          }
+[31m-        </style>
+[31m-        
+[31m-          <script>
+[31m-            async function quickchart(key) {
+[31m-              const quickchartButtonEl =
+[31m-                document.querySelector('#' + key + ' button');
+[31m-              quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+[31m-              quickchartButtonEl.classList.add('colab-df-spinner');
+[31m-              try {
+[31m-                const charts = await google.colab.kernel.invokeFunction(
+[31m-                    'suggestCharts', [key], {});
+[31m-              } catch (error) {
+[31m-                console.error('Error during call to suggestCharts:', error);
+[31m-              }
+[31m-              quickchartButtonEl.classList.remove('colab-df-spinner');
+[31m-              quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+[31m-            }
+[31m-            (() => {
+[31m-              let quickchartButtonEl =
+[31m-                document.querySelector('#df-085cc747-ad7b-40a9-a711-15d67d970f3c button');
+[31m-              quickchartButtonEl.style.display =
+[31m-                google.colab.kernel.accessAllowed ? 'block' : 'none';
+[31m-            })();
+[31m-          </script>
+[31m-        </div>
+[31m-        
+[31m-            </div>
+[31m-          </div>
+[31m-      text/plain:
+[31m-                                                   Sequences
+[31m-        1  CCGAGGGCTATGGTTTGGAAGTTAGAACCCTGGGGCTTCTCGCGGA...
+[31m-        2  GAGTTTATATGGCGCGAGCCTAGTGGTTTTTGTACTTGTTTGTCGC...
+[31m-        3  GATCAGTAGGGAAACAAACAGAGGGCCCAGCCACATCTAGCAGGTA...
+[31m-        4  GTCCACGACCGAACTCCCACCTTGACCGCAGAGGTACCACCAGAGC...
+[31m-        5  GGCGACCGAACTCCAACTAGAACCTGCATAACTGGCCTGGGAGATA...
+
+[0m[34m[1m## modified /cells/44/metadata/outputId:[0m
+[31m-  8abca1b7-26b2-472b-ad57-22bd2636206f
+[32m+  31f6f2dc-0ea2-4a20-b31b-d2c493543b47
+
+[0m[34m[1m## replaced /cells/45/execution_count:[0m
+[31m-  12
+[32m+  16
+
+[0m[34m[1m## modified /cells/45/metadata/outputId:[0m
+[31m-  8a5f5b79-0431-4e78-a1ba-b78dda487112
+[32m+  23e99f4c-0281-46c6-ee8c-4d5ca58d7cb4
+
+[0m[34m[1m## modified /cells/45/source:[0m
+[36m@@ -37,10 +37,14 @@[m [mclass Conv1DModel(nn.Module):[m
+         x = F.softmax(self.fc2(x), dim=1)[m
+         return x[m
+ [m
+[32m+[m[32m# Set device[m
+[32m+[m[32mdevice = torch.device("cuda" if torch.cuda.is_available() else "cpu")[m
+[32m+[m
+ # Example usage:[m
+ # Assuming train_features is a tensor with shape (batch_size, num_positions, 4)[m
+ input_length = train_features.shape[1][m
+ model = Conv1DModel(input_length=input_length)[m
+[32m+[m[32mmodel.to(device) # Move model to the same device as the data[m
+ [m
+ # Define loss function and optimizer[m
+ loss_fn = nn.CrossEntropyLoss()  # Equivalent to binary_crossentropy in PyTorch for classification[m
+
+[0m[34m[1m## replaced /cells/46/execution_count:[0m
+[31m-  14
+[32m+  17
+
+[0m[34m[1m## modified /cells/46/metadata/outputId:[0m
+[31m-  c9fff38a-b8d3-4979-b9b9-f954b7374445
+[32m+  32f143db-c570-45b2-924e-43cd88b104b8
+
+[0m[34m[1m## inserted before /cells/46/outputs/0:[0m
+[32m+  output:
+[32m+    output_type: stream
+[32m+    name: stdout
+[32m+    text:
+[32m+      Epoch 1/50, Train Loss: 0.6737, Val Loss: 0.6524
+[32m+      Epoch 2/50, Train Loss: 0.5756, Val Loss: 0.5617
+[32m+      Epoch 3/50, Train Loss: 0.4812, Val Loss: 0.4895
+[32m+      Epoch 4/50, Train Loss: 0.4308, Val Loss: 0.4483
+[32m+      Epoch 5/50, Train Loss: 0.3968, Val Loss: 0.4233
+[32m+      Epoch 6/50, Train Loss: 0.3747, Val Loss: 0.3981
+[32m+      Epoch 7/50, Train Loss: 0.3582, Val Loss: 0.3813
+[32m+      Epoch 8/50, Train Loss: 0.3477, Val Loss: 0.3722
+[32m+      Epoch 9/50, Train Loss: 0.3401, Val Loss: 0.3669
+[32m+      Epoch 10/50, Train Loss: 0.3355, Val Loss: 0.3610
+[32m+      Epoch 11/50, Train Loss: 0.3328, Val Loss: 0.3526
+[32m+      Epoch 12/50, Train Loss: 0.3282, Val Loss: 0.3509
+[32m+      Epoch 13/50, Train Loss: 0.3257, Val Loss: 0.3491
+[32m+      Epoch 14/50, Train Loss: 0.3234, Val Loss: 0.3440
+[32m+      Epoch 15/50, Train Loss: 0.3223, Val Loss: 0.3419
+[32m+      Epoch 16/50, Train Loss: 0.3213, Val Loss: 0.3402
+[32m+      Epoch 17/50, Train Loss: 0.3202, Val Loss: 0.3394
+[32m+      Epoch 18/50, Train Loss: 0.3195, Val Loss: 0.3417
+[32m+      Epoch 19/50, Train Loss: 0.3189, Val Loss: 0.3393
+[32m+      Epoch 20/50, Train Loss: 0.3181, Val Loss: 0.3360
+[32m+      Epoch 21/50, Train Loss: 0.3180, Val Loss: 0.3360
+[32m+      Epoch 22/50, Train Loss: 0.3176, Val Loss: 0.3409
+[32m+      Epoch 23/50, Train Loss: 0.3172, Val Loss: 0.3370
+[32m+      Epoch 24/50, Train Loss: 0.3167, Val Loss: 0.3351
+[32m+      Epoch 25/50, Train Loss: 0.3164, Val Loss: 0.3352
+[32m+      Epoch 26/50, Train Loss: 0.3162, Val Loss: 0.3354
+[32m+      Epoch 27/50, Train Loss: 0.3161, Val Loss: 0.3338
+[32m+      Epoch 28/50, Train Loss: 0.3159, Val Loss: 0.3340
+[32m+      Epoch 29/50, Train Loss: 0.3158, Val Loss: 0.3339
+[32m+      Epoch 30/50, Train Loss: 0.3158, Val Loss: 0.3334
+[32m+      Epoch 31/50, Train Loss: 0.3157, Val Loss: 0.3340
+[32m+      Epoch 32/50, Train Loss: 0.3156, Val Loss: 0.3324
+[32m+      Epoch 33/50, Train Loss: 0.3156, Val Loss: 0.3320
+[32m+      Epoch 34/50, Train Loss: 0.3155, Val Loss: 0.3327
+[32m+      Epoch 35/50, Train Loss: 0.3155, Val Loss: 0.3306
+[32m+      Epoch 36/50, Train Loss: 0.3153, Val Loss: 0.3358
+[32m+      Epoch 37/50, Train Loss: 0.3147, Val Loss: 0.3297
+[32m+      Epoch 38/50, Train Loss: 0.3146, Val Loss: 0.3303
+[32m+      Epoch 39/50, Train Loss: 0.3146, Val Loss: 0.3307
+[32m+      Epoch 40/50, Train Loss: 0.3145, Val Loss: 0.3319
+[32m+      Epoch 41/50, Train Loss: 0.3146, Val Loss: 0.3304
+[32m+      Epoch 42/50, Train Loss: 0.3145, Val Loss: 0.3313
+[32m+      Epoch 43/50, Train Loss: 0.3145, Val Loss: 0.3304
+[32m+      Epoch 44/50, Train Loss: 0.3145, Val Loss: 0.3312
+[32m+      Epoch 45/50, Train Loss: 0.3144, Val Loss: 0.3311
+[32m+      Epoch 46/50, Train Loss: 0.3144, Val Loss: 0.3305
+[32m+      Epoch 47/50, Train Loss: 0.3144, Val Loss: 0.3310
+[32m+      Epoch 48/50, Train Loss: 0.3144, Val Loss: 0.3303
+[32m+      Epoch 49/50, Train Loss: 0.3144, Val Loss: 0.3316
+[32m+      Epoch 50/50, Train Loss: 0.3144, Val Loss: 0.3311
+[32m+  output:
+[32m+    output_type: display_data
+[32m+    data:
+[32m+      image/png: iVBORw0K...<snip base64, md5=eb9b2ffe937b01fb...>
+[32m+      text/plain: <Figure size 640x480 with 1 Axes>
+
+[0m[34m[1m## deleted /cells/46/outputs/0-1:[0m
+[31m-  output:
+[31m-    output_type: stream
+[31m-    name: stdout
+[31m-    text:
+[31m-      Epoch 1/50, Train Loss: 0.6794, Val Loss: 0.6625
+[31m-      Epoch 2/50, Train Loss: 0.6112, Val Loss: 0.5473
+[31m-      Epoch 3/50, Train Loss: 0.5054, Val Loss: 0.4620
+[31m-      Epoch 4/50, Train Loss: 0.4440, Val Loss: 0.4135
+[31m-      Epoch 5/50, Train Loss: 0.3982, Val Loss: 0.3807
+[31m-      Epoch 6/50, Train Loss: 0.3718, Val Loss: 0.3653
+[31m-      Epoch 7/50, Train Loss: 0.3570, Val Loss: 0.3536
+[31m-      Epoch 8/50, Train Loss: 0.3493, Val Loss: 0.3431
+[31m-      Epoch 9/50, Train Loss: 0.3378, Val Loss: 0.3386
+[31m-      Epoch 10/50, Train Loss: 0.3332, Val Loss: 0.3366
+[31m-      Epoch 11/50, Train Loss: 0.3297, Val Loss: 0.3395
+[31m-      Epoch 12/50, Train Loss: 0.3266, Val Loss: 0.3298
+[31m-      Epoch 13/50, Train Loss: 0.3241, Val Loss: 0.3288
+[31m-      Epoch 14/50, Train Loss: 0.3232, Val Loss: 0.3325
+[31m-      Epoch 15/50, Train Loss: 0.3214, Val Loss: 0.3279
+[31m-      Epoch 16/50, Train Loss: 0.3200, Val Loss: 0.3260
+[31m-      Epoch 17/50, Train Loss: 0.3193, Val Loss: 0.3271
+[31m-      Epoch 18/50, Train Loss: 0.3185, Val Loss: 0.3250
+[31m-      Epoch 19/50, Train Loss: 0.3178, Val Loss: 0.3247
+[31m-      Epoch 20/50, Train Loss: 0.3174, Val Loss: 0.3244
+[31m-      Epoch 21/50, Train Loss: 0.3169, Val Loss: 0.3278
+[31m-      Epoch 22/50, Train Loss: 0.3167, Val Loss: 0.3272
+[31m-      Epoch 23/50, Train Loss: 0.3161, Val Loss: 0.3243
+[31m-      Epoch 24/50, Train Loss: 0.3158, Val Loss: 0.3241
+[31m-      Epoch 25/50, Train Loss: 0.3159, Val Loss: 0.3242
+[31m-      Epoch 26/50, Train Loss: 0.3156, Val Loss: 0.3237
+[31m-      Epoch 27/50, Train Loss: 0.3152, Val Loss: 0.3240
+[31m-      Epoch 28/50, Train Loss: 0.3151, Val Loss: 0.3233
+[31m-      Epoch 29/50, Train Loss: 0.3151, Val Loss: 0.3226
+[31m-      Epoch 30/50, Train Loss: 0.3149, Val Loss: 0.3228
+[31m-      Epoch 31/50, Train Loss: 0.3149, Val Loss: 0.3224
+[31m-      Epoch 32/50, Train Loss: 0.3148, Val Loss: 0.3224
+[31m-      Epoch 33/50, Train Loss: 0.3148, Val Loss: 0.3219
+[31m-      Epoch 34/50, Train Loss: 0.3147, Val Loss: 0.3219
+[31m-      Epoch 35/50, Train Loss: 0.3147, Val Loss: 0.3217
+[31m-      Epoch 36/50, Train Loss: 0.3146, Val Loss: 0.3221
+[31m-      Epoch 37/50, Train Loss: 0.3146, Val Loss: 0.3220
+[31m-      Epoch 38/50, Train Loss: 0.3146, Val Loss: 0.3215
+[31m-      Epoch 39/50, Train Loss: 0.3145, Val Loss: 0.3218
+[31m-      Epoch 40/50, Train Loss: 0.3145, Val Loss: 0.3217
+[31m-      Epoch 41/50, Train Loss: 0.3145, Val Loss: 0.3214
+[31m-      Epoch 42/50, Train Loss: 0.3145, Val Loss: 0.3216
+[31m-      Epoch 43/50, Train Loss: 0.3145, Val Loss: 0.3213
+[31m-      Epoch 44/50, Train Loss: 0.3144, Val Loss: 0.3211
+[31m-      Epoch 45/50, Train Loss: 0.3144, Val Loss: 0.3212
+[31m-      Epoch 46/50, Train Loss: 0.3144, Val Loss: 0.3210
+[31m-      Epoch 47/50, Train Loss: 0.3144, Val Loss: 0.3213
+[31m-      Epoch 48/50, Train Loss: 0.3144, Val Loss: 0.3209
+[31m-      Epoch 49/50, Train Loss: 0.3144, Val Loss: 0.3207
+[31m-      Epoch 50/50, Train Loss: 0.3143, Val Loss: 0.3209
+[31m-  output:
+[31m-    output_type: display_data
+[31m-    data:
+[31m-      image/png: iVBORw0K...<snip base64, md5=642cf0571fb7ff8b...>
+[31m-      text/plain: <Figure size 640x480 with 1 Axes>
+
+[0m[34m[1m## modified /cells/46/source:[0m
+[36m@@ -1,5 +1,20 @@[m
+[32m+[m[32mimport torch[m
+[32m+[m[32mimport torch.nn as nn[m
+[32m+[m[32mimport torch.nn.functional as F[m
+[32m+[m[32mfrom torch.utils.data import DataLoader, random_split, TensorDataset[m
+[32m+[m
+[32m+[m[32m# Set device[m
+[32m+[m[32mdevice = torch.device("cuda" if torch.cuda.is_available() else "cpu")[m
+[32m+[m
+ # Assuming train_labels is one-hot encoded, convert it to class indices[m
+[31m-train_labels_tensor = torch.tensor(train_labels, dtype=torch.float32).argmax(dim=1).to(device)[m
+[32m+[m[32mtrain_labels_tensor = torch.tensor(train_labels, dtype=torch.float32).argmax(dim=1).to(device);[m
+[32m+[m
+[32m+[m[32m# Convert train_features to a PyTorch tensor and send it to the device[m
+[32m+[m[32mtrain_features_tensor = torch.tensor(train_features, dtype=torch.float32).permute(0, 2, 1).to(device);[m
+[32m+[m
+[32m+[m[32m# Move model to the same device as the data. This is added here to ensure consistency[m
+[32m+[m[32m# in case the model definition cell wasn't re-executed or device state was lost.[m
+[32m+[m[32mmodel.to(device);[m
+ [m
+ # Rest of the code remains the same[m
+ dataset = TensorDataset(train_features_tensor, train_labels_tensor)[m
+[36m@@ -61,4 +76,4 @@[m [mplt.title('Model Loss')[m
+ plt.ylabel('Loss')[m
+ plt.xlabel('Epoch')[m
+ plt.legend()[m
+[31m-plt.show()[m
+[32m+[m[32mplt.show()[m
+[m
+
+[0m[34m[1m## replaced /cells/49/execution_count:[0m
+[31m-  15
+[32m+  18
+
+[0m[34m[1m## replaced /cells/49/metadata/colab/height:[0m
+[31m-  526
+[32m+  524
+
+[0m[34m[1m## modified /cells/49/metadata/outputId:[0m
+[31m-  279e01ac-48e2-4beb-d5a6-518d13016d85
+[32m+  a37d694e-cd61-421b-b490-c1ed5131b1ad
+
+[0m[34m[1m## modified /cells/49/outputs/0/text:[0m
+[36m@@ -1,3 +1,3 @@[m
+ Confusion matrix:[m
+[31m- [[257   2][m
+[31m- [  0 241]][m
+[32m+[m[32m [[255   4][m
+[32m+[m[32m [  1 240]][m
+
+[0m[34m[1m## inserted before /cells/49/outputs/1:[0m
+[32m+  output:
+[32m+    output_type: display_data
+[32m+    data:
+[32m+      image/png: iVBORw0K...<snip base64, md5=b5d798f3037c6978...>
+[32m+      text/plain: <Figure size 640x480 with 2 Axes>
+
+[0m[34m[1m## deleted /cells/49/outputs/1:[0m
+[31m-  output:
+[31m-    output_type: display_data
+[31m-    data:
+[31m-      image/png: iVBORw0K...<snip base64, md5=fd61b3244905a3a3...>
+[31m-      text/plain: <Figure size 640x480 with 2 Axes>
+
+[0m[34m[1m## replaced /cells/52/execution_count:[0m
+[31m-  16
+[32m+  19
+
+[0m[34m[1m## replaced /cells/53/execution_count:[0m
+[31m-  18
+[32m+  20
+
+[0m[34m[1m## modified /cells/53/metadata/outputId:[0m
+[31m-  ef9b810c-e324-4097-d4d3-aefd31059647
+[32m+  a60f18db-b394-4256-d3be-771539fc18d1
+
+[0m[34m[1m## inserted before /cells/53/outputs/0:[0m
+[32m+  output:
+[32m+    output_type: stream
+[32m+    name: stdout
+[32m+    text:
+[32m+      Epoch 1/50, Train Loss: 0.6506, Val Loss: 0.6131
+[32m+      Epoch 2/50, Train Loss: 0.5715, Val Loss: 0.6173
+[32m+      Epoch 3/50, Train Loss: 0.5564, Val Loss: 0.5950
+[32m+      Epoch 4/50, Train Loss: 0.5495, Val Loss: 0.6170
+[32m+      Epoch 5/50, Train Loss: 0.5294, Val Loss: 0.6093
+[32m+      Epoch 6/50, Train Loss: 0.5302, Val Loss: 0.6080
+[32m+      Epoch 7/50, Train Loss: 0.5540, Val Loss: 0.6362
+[32m+      Epoch 8/50, Train Loss: 0.5313, Val Loss: 0.6246
+[32m+      Epoch 9/50, Train Loss: 0.5282, Val Loss: 0.6175
+[32m+      Epoch 10/50, Train Loss: 0.5076, Val Loss: 0.6215
+[32m+      Epoch 11/50, Train Loss: 0.5212, Val Loss: 0.6131
+[32m+      Epoch 12/50, Train Loss: 0.5057, Val Loss: 0.6052
+[32m+      Epoch 13/50, Train Loss: 0.5065, Val Loss: 0.6130
+[32m+      Epoch 14/50, Train Loss: 0.4915, Val Loss: 0.6142
+[32m+      Epoch 15/50, Train Loss: 0.5046, Val Loss: 0.6225
+[32m+      Epoch 16/50, Train Loss: 0.4952, Val Loss: 0.6179
+[32m+      Epoch 17/50, Train Loss: 0.5021, Val Loss: 0.6207
+[32m+      Epoch 18/50, Train Loss: 0.4904, Val Loss: 0.6183
+[32m+      Epoch 19/50, Train Loss: 0.4910, Val Loss: 0.6281
+[32m+      Epoch 20/50, Train Loss: 0.4880, Val Loss: 0.6254
+[32m+      Epoch 21/50, Train Loss: 0.4920, Val Loss: 0.6144
+[32m+      Epoch 22/50, Train Loss: 0.5187, Val Loss: 0.6345
+[32m+      Epoch 23/50, Train Loss: 0.4963, Val Loss: 0.6291
+[32m+      Epoch 24/50, Train Loss: 0.4929, Val Loss: 0.6320
+[32m+      Epoch 25/50, Train Loss: 0.4836, Val Loss: 0.6288
+[32m+      Epoch 26/50, Train Loss: 0.5283, Val Loss: 0.6337
+[32m+      Epoch 27/50, Train Loss: 0.4901, Val Loss: 0.6336
+[32m+      Epoch 28/50, Train Loss: 0.4826, Val Loss: 0.6358
+[32m+      Epoch 29/50, Train Loss: 0.4822, Val Loss: 0.6301
+[32m+      Epoch 30/50, Train Loss: 0.4742, Val Loss: 0.6266
+[32m+      Epoch 31/50, Train Loss: 0.4729, Val Loss: 0.6108
+[32m+      Epoch 32/50, Train Loss: 0.4801, Val Loss: 0.6259
+[32m+      Epoch 33/50, Train Loss: 0.4842, Val Loss: 0.6260
+[32m+      Epoch 34/50, Train Loss: 0.4870, Val Loss: 0.6174
+[32m+      Epoch 35/50, Train Loss: 0.4707, Val Loss: 0.6173
+[32m+      Epoch 36/50, Train Loss: 0.4851, Val Loss: 0.6338
+[32m+      Epoch 37/50, Train Loss: 0.4912, Val Loss: 0.6233
+[32m+      Epoch 38/50, Train Loss: 0.4723, Val Loss: 0.6235
+[32m+      Epoch 39/50, Train Loss: 0.4682, Val Loss: 0.6205
+[32m+      Epoch 40/50, Train Loss: 0.4788, Val Loss: 0.6209
+[32m+      Epoch 41/50, Train Loss: 0.4737, Val Loss: 0.6208
+[32m+      Epoch 42/50, Train Loss: 0.4702, Val Loss: 0.6215
+[32m+      Epoch 43/50, Train Loss: 0.4647, Val Loss: 0.6175
+[32m+      Epoch 44/50, Train Loss: 0.4676, Val Loss: 0.6134
+[32m+      Epoch 45/50, Train Loss: 0.4778, Val Loss: 0.6204
+[32m+      Epoch 46/50, Train Loss: 0.4675, Val Loss: 0.6317
+[32m+      Epoch 47/50, Train Loss: 0.4774, Val Loss: 0.6286
+[32m+      Epoch 48/50, Train Loss: 0.4683, Val Loss: 0.6275
+[32m+      Epoch 49/50, Train Loss: 0.4679, Val Loss: 0.6230
+[32m+      Epoch 50/50, Train Loss: 0.4769, Val Loss: 0.6318
+[32m+  output:
+[32m+    output_type: display_data
+[32m+    data:
+[32m+      image/png: iVBORw0K...<snip base64, md5=7a04d07ebfb06d3f...>
+[32m+      text/plain: <Figure size 640x480 with 1 Axes>
+
+[0m[34m[1m## deleted /cells/53/outputs/0-1:[0m
+[31m-  output:
+[31m-    output_type: stream
+[31m-    name: stdout
+[31m-    text:
+[31m-      Epoch 1/50, Train Loss: 0.6663, Val Loss: 0.5813
+[31m-      Epoch 2/50, Train Loss: 0.5612, Val Loss: 0.5893
+[31m-      Epoch 3/50, Train Loss: 0.5714, Val Loss: 0.5999
+[31m-      Epoch 4/50, Train Loss: 0.5388, Val Loss: 0.6238
+[31m-      Epoch 5/50, Train Loss: 0.5638, Val Loss: 0.6094
+[31m-      Epoch 6/50, Train Loss: 0.5325, Val Loss: 0.6171
+[31m-      Epoch 7/50, Train Loss: 0.5161, Val Loss: 0.6065
+[31m-      Epoch 8/50, Train Loss: 0.5177, Val Loss: 0.6228
+[31m-      Epoch 9/50, Train Loss: 0.5129, Val Loss: 0.6087
+[31m-      Epoch 10/50, Train Loss: 0.5154, Val Loss: 0.6057
+[31m-      Epoch 11/50, Train Loss: 0.5131, Val Loss: 0.6084
+[31m-      Epoch 12/50, Train Loss: 0.5170, Val Loss: 0.5990
+[31m-      Epoch 13/50, Train Loss: 0.5106, Val Loss: 0.6149
+[31m-      Epoch 14/50, Train Loss: 0.5014, Val Loss: 0.6033
+[31m-      Epoch 15/50, Train Loss: 0.4906, Val Loss: 0.5991
+[31m-      Epoch 16/50, Train Loss: 0.5005, Val Loss: 0.6024
+[31m-      Epoch 17/50, Train Loss: 0.4971, Val Loss: 0.6090
+[31m-      Epoch 18/50, Train Loss: 0.4983, Val Loss: 0.6016
+[31m-      Epoch 19/50, Train Loss: 0.4935, Val Loss: 0.6037
+[31m-      Epoch 20/50, Train Loss: 0.4828, Val Loss: 0.6055
+[31m-      Epoch 21/50, Train Loss: 0.4922, Val Loss: 0.6108
+[31m-      Epoch 22/50, Train Loss: 0.4878, Val Loss: 0.6304
+[31m-      Epoch 23/50, Train Loss: 0.4934, Val Loss: 0.6055
+[31m-      Epoch 24/50, Train Loss: 0.5022, Val Loss: 0.6163
+[31m-      Epoch 25/50, Train Loss: 0.4791, Val Loss: 0.6158
+[31m-      Epoch 26/50, Train Loss: 0.4747, Val Loss: 0.6290
+[31m-      Epoch 27/50, Train Loss: 0.4811, Val Loss: 0.6206
+[31m-      Epoch 28/50, Train Loss: 0.4875, Val Loss: 0.6297
+[31m-      Epoch 29/50, Train Loss: 0.4875, Val Loss: 0.6150
+[31m-      Epoch 30/50, Train Loss: 0.5028, Val Loss: 0.6206
+[31m-      Epoch 31/50, Train Loss: 0.5067, Val Loss: 0.6140
+[31m-      Epoch 32/50, Train Loss: 0.4926, Val Loss: 0.6075
+[31m-      Epoch 33/50, Train Loss: 0.4774, Val Loss: 0.6268
+[31m-      Epoch 34/50, Train Loss: 0.4894, Val Loss: 0.6183
+[31m-      Epoch 35/50, Train Loss: 0.4682, Val Loss: 0.6102
+[31m-      Epoch 36/50, Train Loss: 0.4594, Val Loss: 0.6240
+[31m-      Epoch 37/50, Train Loss: 0.4684, Val Loss: 0.6168
+[31m-      Epoch 38/50, Train Loss: 0.4610, Val Loss: 0.6138
+[31m-      Epoch 39/50, Train Loss: 0.4808, Val Loss: 0.6265
+[31m-      Epoch 40/50, Train Loss: 0.4814, Val Loss: 0.6256
+[31m-      Epoch 41/50, Train Loss: 0.4684, Val Loss: 0.6180
+[31m-      Epoch 42/50, Train Loss: 0.4643, Val Loss: 0.6102
+[31m-      Epoch 43/50, Train Loss: 0.4742, Val Loss: 0.6179
+[31m-      Epoch 44/50, Train Loss: 0.4652, Val Loss: 0.6074
+[31m-      Epoch 45/50, Train Loss: 0.4584, Val Loss: 0.6218
+[31m-      Epoch 46/50, Train Loss: 0.4620, Val Loss: 0.6282
+[31m-      Epoch 47/50, Train Loss: 0.4826, Val Loss: 0.6369
+[31m-      Epoch 48/50, Train Loss: 0.4800, Val Loss: 0.6353
+[31m-      Epoch 49/50, Train Loss: 0.4730, Val Loss: 0.6181
+[31m-      Epoch 50/50, Train Loss: 0.4621, Val Loss: 0.6329
+[31m-  output:
+[31m-    output_type: display_data
+[31m-    data:
+[31m-      image/png: iVBORw0K...<snip base64, md5=667ba0152fae7631...>
+[31m-      text/plain: <Figure size 640x480 with 1 Axes>
+
+[0m[34m[1m## replaced /cells/55/execution_count:[0m
+[31m-  19
+[32m+  21
+
+[0m[34m[1m## replaced /cells/55/metadata/colab/height:[0m
+[31m-  901
+[32m+  1000
+
+[0m[34m[1m## modified /cells/55/metadata/outputId:[0m
+[31m-  eff0beb4-e6e2-4733-c0cd-0c83e3c85a51
+[32m+  11be2e07-cee8-41db-b907-4f777af465dd
+
+[0m[34m[1m## inserted before /cells/55/outputs/0:[0m
+[32m+  output:
+[32m+    output_type: stream
+[32m+    name: stdout
+[32m+    text:
+[32m+      Epoch 1/500, Train Loss: 0.6901, Val Loss: 0.7557
+[32m+      Epoch 2/500, Train Loss: 0.5901, Val Loss: 0.5947
+[32m+      Epoch 3/500, Train Loss: 0.5502, Val Loss: 0.5752
+[32m+      Epoch 4/500, Train Loss: 0.5382, Val Loss: 0.5812
+[32m+      Epoch 5/500, Train Loss: 0.5398, Val Loss: 0.6268
+[32m+      Epoch 6/500, Train Loss: 0.5375, Val Loss: 0.5860
+[32m+      Epoch 7/500, Train Loss: 0.5394, Val Loss: 0.6005
+[32m+      Epoch 8/500, Train Loss: 0.5328, Val Loss: 0.5851
+[32m+      Epoch 9/500, Train Loss: 0.5167, Val Loss: 0.5837
+[32m+      Epoch 10/500, Train Loss: 0.5164, Val Loss: 0.5804
+[32m+      Epoch 11/500, Train Loss: 0.5060, Val Loss: 0.5749
+[32m+      Epoch 12/500, Train Loss: 0.4982, Val Loss: 0.5857
+[32m+      Epoch 13/500, Train Loss: 0.4931, Val Loss: 0.5865
+[32m+      Epoch 14/500, Train Loss: 0.4984, Val Loss: 0.5911
+[32m+      Epoch 15/500, Train Loss: 0.4920, Val Loss: 0.5885
+[32m+      Epoch 16/500, Train Loss: 0.4932, Val Loss: 0.5828
+[32m+      Epoch 17/500, Train Loss: 0.4893, Val Loss: 0.5917
+[32m+      Epoch 18/500, Train Loss: 0.4953, Val Loss: 0.5935
+[32m+      Epoch 19/500, Train Loss: 0.4862, Val Loss: 0.5905
+[32m+      Epoch 20/500, Train Loss: 0.4952, Val Loss: 0.5968
+[32m+      Epoch 21/500, Train Loss: 0.4827, Val Loss: 0.5892
+[32m+      Epoch 22/500, Train Loss: 0.4790, Val Loss: 0.5938
+[32m+      Epoch 23/500, Train Loss: 0.4751, Val Loss: 0.5901
+[32m+      Epoch 24/500, Train Loss: 0.4823, Val Loss: 0.5936
+[32m+      Epoch 25/500, Train Loss: 0.4818, Val Loss: 0.6001
+[32m+      Epoch 26/500, Train Loss: 0.4767, Val Loss: 0.5950
+[32m+      Epoch 27/500, Train Loss: 0.4746, Val Loss: 0.5964
+[32m+      Epoch 28/500, Train Loss: 0.4747, Val Loss: 0.5974
+[32m+      Epoch 29/500, Train Loss: 0.4707, Val Loss: 0.5942
+[32m+      Epoch 30/500, Train Loss: 0.4693, Val Loss: 0.5963
+[32m+      Epoch 31/500, Train Loss: 0.4715, Val Loss: 0.5971
+[32m+      Early stopping triggered.
+[32m+  output:
+[32m+    output_type: display_data
+[32m+    data:
+[32m+      image/png: iVBORw0K...<snip base64, md5=70b33b54997018dd...>
+[32m+      text/plain: <Figure size 640x480 with 1 Axes>
+
+[0m[34m[1m## deleted /cells/55/outputs/0-1:[0m
+[31m-  output:
+[31m-    output_type: stream
+[31m-    name: stdout
+[31m-    text:
+[31m-      Epoch 1/500, Train Loss: 0.7093, Val Loss: 0.6237
+[31m-      Epoch 2/500, Train Loss: 0.5981, Val Loss: 0.5971
+[31m-      Epoch 3/500, Train Loss: 0.5565, Val Loss: 0.5900
+[31m-      Epoch 4/500, Train Loss: 0.5336, Val Loss: 0.5986
+[31m-      Epoch 5/500, Train Loss: 0.5222, Val Loss: 0.5972
+[31m-      Epoch 6/500, Train Loss: 0.5126, Val Loss: 0.5978
+[31m-      Epoch 7/500, Train Loss: 0.5153, Val Loss: 0.6102
+[31m-      Epoch 8/500, Train Loss: 0.5097, Val Loss: 0.6151
+[31m-      Epoch 9/500, Train Loss: 0.4996, Val Loss: 0.6042
+[31m-      Epoch 10/500, Train Loss: 0.4960, Val Loss: 0.6059
+[31m-      Epoch 11/500, Train Loss: 0.4919, Val Loss: 0.6069
+[31m-      Epoch 12/500, Train Loss: 0.4925, Val Loss: 0.6170
+[31m-      Epoch 13/500, Train Loss: 0.5059, Val Loss: 0.6149
+[31m-      Epoch 14/500, Train Loss: 0.4910, Val Loss: 0.6149
+[31m-      Epoch 15/500, Train Loss: 0.4831, Val Loss: 0.6112
+[31m-      Epoch 16/500, Train Loss: 0.4822, Val Loss: 0.6137
+[31m-      Epoch 17/500, Train Loss: 0.4754, Val Loss: 0.6088
+[31m-      Epoch 18/500, Train Loss: 0.4741, Val Loss: 0.6090
+[31m-      Epoch 19/500, Train Loss: 0.4759, Val Loss: 0.6136
+[31m-      Epoch 20/500, Train Loss: 0.4737, Val Loss: 0.6130
+[31m-      Epoch 21/500, Train Loss: 0.4662, Val Loss: 0.6052
+[31m-      Epoch 22/500, Train Loss: 0.4680, Val Loss: 0.6068
+[31m-      Epoch 23/500, Train Loss: 0.4660, Val Loss: 0.6131
+[31m-      Early stopping triggered.
+[31m-  output:
+[31m-    output_type: display_data
+[31m-    data:
+[31m-      image/png: iVBORw0K...<snip base64, md5=d835764e61c58f90...>
+[31m-      text/plain: <Figure size 640x480 with 1 Axes>
+
+[0m[34m[1m## replaced /cells/57/execution_count:[0m
+[31m-  20
+[32m+  22
+
+[0m[34m[1m## replaced /cells/57/metadata/colab/height:[0m
+[31m-  526
+[32m+  524
+
+[0m[34m[1m## modified /cells/57/metadata/outputId:[0m
+[31m-  ce8ed29c-35c8-45ff-8aa8-53c863cae37f
+[32m+  85800ccc-9d29-4b9c-887e-9bb78dbe7c6c
+
+[0m[34m[1m## modified /cells/57/outputs/0/text:[0m
+[36m@@ -1,3 +1,3 @@[m
+ Confusion matrix:[m
+[31m- [[154 105][m
+[31m- [ 61 180]][m
+[32m+[m[32m [[164  95][m
+[32m+[m[32m [ 70 171]][m
+
+[0m[34m[1m## inserted before /cells/57/outputs/1:[0m
+[32m+  output:
+[32m+    output_type: display_data
+[32m+    data:
+[32m+      image/png: iVBORw0K...<snip base64, md5=76169ceab7848425...>
+[32m+      text/plain: <Figure size 640x480 with 2 Axes>
+
+[0m[34m[1m## deleted /cells/57/outputs/1:[0m
+[31m-  output:
+[31m-    output_type: display_data
+[31m-    data:
+[31m-      image/png: iVBORw0K...<snip base64, md5=7e814a30b990cdb2...>
+[31m-      text/plain: <Figure size 640x480 with 2 Axes>
+
+[0m
