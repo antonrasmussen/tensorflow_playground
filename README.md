@@ -17,6 +17,16 @@ For a fast edit-refresh cycle when developing run `npm run serve-watch`.
 This will start an http server and automatically re-compile the TypeScript,
 HTML and CSS files whenever they change.
 
+### Run locally in Cursor (fixed port)
+
+- `npm run build` then `npm run serve:test` — serves at **http://127.0.0.1:8080**
+
+### Automated tests
+
+- `npm test` — runs Playwright tests (starts the server automatically if needed).
+- First time: run `npx playwright install` to download the browser.
+- See [tests/README.md](tests/README.md) for test groups and how to run a single test.
+
 ## For owners
 To push to production: `git subtree push --prefix dist origin gh-pages`.
 

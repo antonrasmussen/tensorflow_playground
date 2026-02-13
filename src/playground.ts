@@ -68,7 +68,9 @@ let INPUTS: {[name: string]: InputFeature} = {
   "xSquared": {f: (x, y) => x * x, label: "X_1^2"},
   "ySquared": {f: (x, y) => y * y,  label: "X_2^2"},
   "xTimesY": {f: (x, y) => x * y, label: "X_1X_2"},
+  "cosX": {f: (x, y) => Math.cos(x), label: "cos(X_1)"},
   "sinX": {f: (x, y) => Math.sin(x), label: "sin(X_1)"},
+  "cosY": {f: (x, y) => Math.cos(y), label: "cos(X_2)"},
   "sinY": {f: (x, y) => Math.sin(y), label: "sin(X_2)"},
 };
 
@@ -88,6 +90,15 @@ let HIDABLE_CONTROLS = [
   ["Noise level", "noise"],
   ["Batch size", "batchSize"],
   ["# of hidden layers", "numHiddenLayers"],
+  ["Feature: X₁", "x"],
+  ["Feature: X₂", "y"],
+  ["Feature: X₁²", "xSquared"],
+  ["Feature: X₂²", "ySquared"],
+  ["Feature: X₁×X₂", "xTimesY"],
+  ["Feature: cos(X₁)", "cosX"],
+  ["Feature: sin(X₁)", "sinX"],
+  ["Feature: cos(X₂)", "cosY"],
+  ["Feature: sin(X₂)", "sinY"],
 ];
 
 class Player {
@@ -243,6 +254,33 @@ function makeGUI() {
   // Select the dataset according to the current state.
   d3.select(`canvas[data-regDataset=${regDatasetKey}]`)
     .classed("selected", true);
+
+  // Feature checkboxes: which inputs to feed in (x, y, x², y², x×y, cos, sin).
+  let featureContainer = d3.select(".column.features").insert("div", "#network")
+    .attr("class", "feature-checkboxes");
+  let inputOrder = ["x", "y", "xSquared", "ySquared", "xTimesY", "cosX", "sinX", "cosY", "sinY"];
+  inputOrder.forEach((inputName) => {
+    if (!(inputName in INPUTS)) return;
+    let label = INPUTS[inputName].label != null ? INPUTS[inputName].label : inputName;
+    let labelEl = featureContainer.append("label")
+      .attr("class", `ui-${inputName} mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect`);
+    labelEl.append("input")
+      .attr("type", "checkbox")
+      .attr("class", "mdl-checkbox__input")
+      .property("checked", state[inputName])
+      .on("change", function() {
+        let checked = (this as HTMLInputElement).checked;
+        if (!checked) {
+          let enabled = inputOrder.filter(n => n !== inputName && state[n]);
+          if (enabled.length === 0) return; // keep at least one feature
+        }
+        state[inputName] = checked;
+        state.serialize();
+        parametersChanged = true;
+        reset();
+      });
+    labelEl.append("span").attr("class", "mdl-checkbox__label label").text(label);
+  });
 
   d3.select("#add-layers").on("click", () => {
     if (state.numHiddenLayers >= 6) {
@@ -569,9 +607,9 @@ function drawNetwork(network: nn.Node[][]): void {
   let idWithCallout = null;
   let targetIdWithCallout = null;
 
-  // Draw the input layer separately.
+  // Draw the input layer separately (only enabled features, matching URL state).
   let cx = RECT_SIZE / 2 + 50;
-  let nodeIds = Object.keys(INPUTS);
+  let nodeIds = constructInputIds();
   let maxY = nodeIndexScale(nodeIds.length);
   nodeIds.forEach((nodeId, i) => {
     let cy = nodeIndexScale(i) + RECT_SIZE / 2;

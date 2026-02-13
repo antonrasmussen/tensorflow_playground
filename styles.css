@@ -591,6 +591,22 @@ g.column rect {
   position: relative;
 }
 
+.feature-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-bottom: 10px;
+}
+
+.feature-checkboxes label.mdl-checkbox {
+  margin-right: 0;
+  font-size: 12px;
+}
+
+.feature-checkboxes .mdl-checkbox__label {
+  font-size: 12px;
+}
+
 .features.column .plus-minus-neurons {
   position: absolute;
   text-align: center;

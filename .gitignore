@@ -2,3 +2,8 @@ node_modules/
 dist/
 *.log
 .vscode
+# Simulation run output (generated when you run simulations)
+tests/simulations/screenshots/
+tests/simulations/outputs/
+# Playwright test results
+test-results/

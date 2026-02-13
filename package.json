@@ -16,9 +16,13 @@
     "build": "npm run prep && npm run build-js && npm run build-css && npm run build-html",
     "watch": "npm run prep && concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-html\"",
     "serve": "npx serve dist/",
-    "serve-watch": "concurrently \"npx serve dist/\" \"npm run watch\""
+    "serve:test": "npx serve dist/ -p 8080",
+    "serve-watch": "concurrently \"npx serve dist/\" \"npm run watch\"",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed"
   },
   "devDependencies": {
+    "@playwright/test": "^1.49.0",
     "@types/d3": "^3.5.34",
     "concat": "^1.0.3",
     "concurrently": "3.1.0",
